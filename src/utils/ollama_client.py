@@ -32,17 +32,35 @@ class OllamaClient:
                         "name": model["name"],
                         "version": model.get("digest", "latest")[:8],
                         "provider": "Ollama",
-                        "parameters": self._get_model_size(model_name),
-                        "context_length": self._get_context_length(model_name)
+                        "parameters": str(model.get("size", "unknown")),
+                        "context_length": str(model.get("context_length", "unknown"))
                     }
             
-            return {
-                "name": model_name,
-                "version": "unknown",
-                "provider": "Ollama",
-                "parameters": "unknown",
-                "context_length": "unknown"
-            }
+            # Si el modelo no se encuentra en la lista, intentar obtener información directamente
+            try:
+                response = self.session.post(
+                    f"{self.base_url}/api/show",
+                    json={"name": model_name}
+                )
+                response.raise_for_status()
+                model_data = response.json()
+                
+                return {
+                    "name": model_name,
+                    "version": model_data.get("digest", "latest")[:8],
+                    "provider": "Ollama",
+                    "parameters": str(model_data.get("size", "unknown")),
+                    "context_length": str(model_data.get("context_length", "unknown"))
+                }
+            except Exception as e:
+                logger.warning(f"No se pudo obtener información detallada del modelo: {e}")
+                return {
+                    "name": model_name,
+                    "version": "unknown",
+                    "provider": "Ollama",
+                    "parameters": "unknown",
+                    "context_length": "unknown"
+                }
             
         except Exception as e:
             logger.error(f"Error al obtener información del modelo: {e}")

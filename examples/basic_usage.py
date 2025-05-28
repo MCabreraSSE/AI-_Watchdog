@@ -81,9 +81,9 @@ def run_red_team_test(model_name: str):
             InstructionConfusion()
         ]
         
-        # Inicializar gestor de resultados
+        # Inicializar gestor de resultados con la información del modelo
         debug_manager.debug("Inicializando gestor de resultados...")
-        result_manager = ResultManager()
+        result_manager = ResultManager(model_info=model_info)
         
         # Ejecutar pruebas
         total_tests = len(vulnerabilities) * len(attacks)

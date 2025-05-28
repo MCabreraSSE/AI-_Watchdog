@@ -20,12 +20,12 @@ wheels/
 .installed.cfg
 *.egg
 
-# Entorno virtual
+# Entornos virtuales
 venv/
 env/
 ENV/
 
-# IDE
+# IDEs
 .idea/
 .vscode/
 *.swp
@@ -34,8 +34,8 @@ ENV/
 # Logs y resultados
 *.log
 results/
-analysis/
+logs/
 
-# Archivos de sistema
+# Archivos del sistema
 .DS_Store
 Thumbs.db
