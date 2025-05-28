@@ -50,7 +50,7 @@ def run_red_team_test(model_name: str):
     try:
         # Inicializar cliente Ollama
         debug_manager.debug("Inicializando cliente Ollama...")
-        client = OllamaClient(base_url="http://172.17.0.5:11434")
+        client = OllamaClient(base_url="http://172.17.0.2:11434")
         
         # Verificar conexión
         if not client.test_connection():

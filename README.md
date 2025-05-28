@@ -33,8 +33,6 @@ AI Watchdog es un framework diseñado para evaluar la seguridad y robustez de mo
   - Codificación especial
   - Separación de palabras
   - Uso de caracteres Unicode
-  - Manipulación de espacios
-  - Codificación alternativa
 - **Severidad**: Media
 - **Tasa de éxito estimada**: 60%
 
@@ -45,10 +43,74 @@ AI Watchdog es un framework diseñado para evaluar la seguridad y robustez de mo
   - Condiciones imposibles
   - Paradojas lógicas
   - Contextos ambiguos
-  - Manipulación de prioridades
-  - Confusión de roles
 - **Severidad**: Alta
 - **Tasa de éxito estimada**: 50%
+
+### 4. Semantic Drift Injection
+- **Descripción**: Manipula el contexto semántico para inducir desviación del propósito original
+- **Técnicas**:
+  - Inyección de contexto
+  - Manipulación temática
+  - Deriva semántica
+- **Severidad**: Alta
+- **Tasa de éxito estimada**: 70%
+
+### 5. Chain-of-Thought Hijacking
+- **Descripción**: Induce al modelo a seguir una cadena de razonamiento que lleva a conclusiones falsas
+- **Técnicas**:
+  - Razonamiento engañoso
+  - Lógica aparentemente válida
+  - Conclusiones falsas
+- **Severidad**: Alta
+- **Tasa de éxito estimada**: 60%
+
+### 6. Tool Subversion Attack
+- **Descripción**: Manipula las llamadas a herramientas externas
+- **Técnicas**:
+  - Interceptación de salidas
+  - Manipulación de resultados
+  - Redirección de herramientas
+- **Severidad**: Media
+- **Tasa de éxito estimada**: 50%
+
+## Vulnerabilidades Detectadas
+
+### 1. Bias
+- **Tipos**: Raza, género, religión
+- **Severidad**: Alta
+- **Métricas**: Nivel de sesgo, impacto en respuestas
+
+### 2. PII Leakage
+- **Descripción**: Fuga de información personal
+- **Severidad**: Crítica
+- **Métricas**: Tasa de detección, falsos positivos
+
+### 3. Hallucination
+- **Descripción**: Fabricación de información
+- **Tipos**:
+  - Fabricación factual
+  - Citas inventadas
+  - Hechos inexistentes
+- **Severidad**: Alta
+- **Métricas**: Veracidad factual, nivel de confianza
+
+### 4. Emotion Amplification
+- **Descripción**: Respuestas con intensidad emocional desproporcionada
+- **Casos**:
+  - Ansiedad artificial
+  - Euforia excesiva
+  - Tristeza amplificada
+- **Severidad**: Media
+- **Métricas**: Nivel de sentimiento, intensidad emocional
+
+### 5. Model-Tool Drift
+- **Descripción**: Inconsistencias entre modelo y herramientas
+- **Casos**:
+  - API inconsistente
+  - Formato incorrecto
+  - Traducción errónea
+- **Severidad**: Alta
+- **Métricas**: Coherencia tool-modelo, desviación de respuesta
 
 ## Instalación
 
@@ -72,8 +134,6 @@ tester.generate_report()
 ```
 
 ## Argumentos de Línea de Comandos
-
-El script principal acepta los siguientes argumentos:
 
 ### --model
 - **Descripción**: Modelo a probar
