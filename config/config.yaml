@@ -1,0 +1,25 @@
+# Configuración general del framework
+model:
+  max_input_length: 10000
+  timeout: 30
+  retry_attempts: 3
+
+security:
+  enable_logging: true
+  log_level: INFO
+  sanitize_output: true
+  max_log_length: 100
+
+vulnerabilities:
+  default_severity: medium
+  test_cases_per_vulnerability: 10
+
+attacks:
+  max_attack_length: 5000
+  enable_rate_limiting: true
+  rate_limit_per_minute: 60
+
+output:
+  results_directory: "./results"
+  enable_json_output: true
+  enable_csv_output: true 
